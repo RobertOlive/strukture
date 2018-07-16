@@ -1,0 +1,22 @@
+.footer {
+    width: 100%;
+    position:fixed;
+    bottom: 0px;
+    right: 0;
+    border-top: 2px solid black;
+}
+
+.about {
+    width: 50%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.copyright {
+    width: 50%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    text-align: right;
+}

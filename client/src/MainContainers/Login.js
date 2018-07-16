@@ -1,8 +1,30 @@
-import React from "react";
+import React, {Component} from "react";
 
-const Login = () => (
+class Login extends Component {
+    state = {
+        newUser: {
+            username: "",
+            password: "",
+            passConf: "",
+            budget: ""
+        },
+        currentUser: {
+            username: "",
+            password: ""
+        }
+    }
+
+    newUserCreate = event => {
+        event.preventDefault();
+        const newUsername = document.getElementById("InputUser2").innerHTML;
+        const newPass = document.getElementById("InputPassword2").innerHTML;
+        const newPassConf = document.getElementById("InputPassword3").innerHTML;
+    }
+
+    render () {
+        return (
     <div className="login">
-        <div>Welcome to strukture! <a data-toggle="modal" data-target="#ModalLogin">Login</a> or <a data-toggle="modal" data-target="#ModalSignUp">sign up</a> here.</div>
+        <div>Welcome to strukture! <a href="#" data-toggle="modal" data-target="#ModalLogin">Login</a> or <a href="#" data-toggle="modal" data-target="#ModalSignUp">sign up</a> here.</div>
 
         <div>Everyone needs a little strukture in their life. Make your life simpler by scheduling your day, planning your month, and easily creating a budget.</div>
 
@@ -14,7 +36,7 @@ const Login = () => (
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="ModalLabel">strukture login</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
@@ -22,9 +44,9 @@ const Login = () => (
                     <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <label for="InputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <label for="InputUser1">Username</label>
+                            <input type="email" class="form-control" id="InputUser1" aria-describedby="UserHelp" placeholder="Enter Username"/>
+                            <small id="UserHelp" class="form-text text-muted">We'll never share your username with anyone else.</small>
                         </div>
                         <div class="form-group">
                             <label for="InputPassword1">Password</label>
@@ -41,7 +63,7 @@ const Login = () => (
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="ModalLabel">strukture account creation</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
@@ -49,13 +71,15 @@ const Login = () => (
                     <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <label for="InputEmail2">Email address</label>
-                            <input type="email" class="form-control" id="InputEmail2" aria-describedby="emailHelp" placeholder="Enter email"/>
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <label for="InputUser2">Username</label>
+                            <input type="email" class="form-control" id="InputUser2" aria-describedby="UserHelp" placeholder="Enter Username"/>
+                            <small id="UserHelp" class="form-text text-muted">We'll never share your username with anyone else.</small>
                         </div>
                         <div class="form-group">
                             <label for="InputPassword2">Password</label>
-                            <input type="password" class="form-control" id="InputPassword2" placeholder="Password"/>
+                            <input type="password" class="form-control" id="InputPassword2" aria-describedby="UserHelp2" placeholder="Password"/>
+                            <small id="UserHelp2" class="form-text text-muted">Please make sure that both passwords match.</small>
+
                         </div>
                         <div class="form-group">
                             <label for="InputPassword3">Confirm Password</label>
@@ -80,6 +104,8 @@ const Login = () => (
             </div>
         </div>
     </div>
-);
+        )
+    }
+};
 
 export default Login;
