@@ -2,12 +2,12 @@ import React from "react";
 
 const CalendarSide = () => (
 
-    <div class="card">
-        <div class="card-header">
+    <div className="card">
+        <div className="card-header">
             Calendar
         </div>
-        <div class="card-body">
-            <p class="card-text"><h1>With supporting text below as a natural lead-in to additional content.</h1></p>
+        <div className="card-body">
+            <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
         </div>
     </div>
 

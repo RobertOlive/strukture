@@ -63,7 +63,10 @@ class App extends Component {
             </div>
 
             <div className="row">
-              <div className="footer">footer</div>
+              <div className="footer">
+                <div className="about"><a href="#">About</a></div>
+                <div className="copyright"><a href="#">Copyright</a></div>
+              </div>
             </div>
           </div>
         </div>
