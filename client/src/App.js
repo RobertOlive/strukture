@@ -14,13 +14,26 @@ import TodosSide from "./SideContainers/TodosSide";
 
 
 class App extends Component {
+  state = {
+    currentUser: {
+      username: "",
+      password: ""
+    }
+  }
+
+
+  handleLogin = (userData) => {
+    this.setState({currentUser: {username: userData.username, password: userData.password}})
+  }
+
+
   render() {
     return (
       <Router>
         <div>
           <div className="container-fluid">
             <div className="row">
-              <div className="header">strukture</div>
+              <div className="header"><strong>strukture</strong></div>
             </div>
 
             <div className="row">
@@ -29,7 +42,7 @@ class App extends Component {
                 <SideCont className="leftSide">
                   <Switch>
                     <Route exact path="/" component={NoMatchSide}/>
-                    <Route exact path="/todos" component={BudgetSide}/>
+                    <Route exact path="/todos" component={BudgetSide} onLogin={this.handleLogin}/>
                     <Route exact path="/budget" component={CalendarSide}/>
                     <Route exact path="/calendar" component={TodosSide}/>
                   </Switch>

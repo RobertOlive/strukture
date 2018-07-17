@@ -9,7 +9,7 @@ module.exports = {
     },
     login: (req, res) => {
         db.User
-            .findById(req.params.id)
+            .findOne({info: {username: req.params.username}})
             .then(dbModel => res.json(dbModel))
             .catch(err=> res.status(422).json(err));
     },

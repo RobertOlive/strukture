@@ -5,8 +5,8 @@ export default {
     createUser: (userData) => {
         return axios.post("/api/users", userData);
     },
-    getUser: (id) => {
-        return axios.get("/api/users/" + id)
+    getUser: (userData) => {
+        return axios.get("/api/users/" + userData.username)
     },
     updateBudget: (id) => {
         return axios.put("/api/users/" + id)

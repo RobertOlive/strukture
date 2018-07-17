@@ -7,9 +7,9 @@ router
   .route("/")
   .post(usersController.create);
 
-// Matches with "api/users/:id, lets user login and update budget"
+// Matches with "api/users/:username, lets user login and update budget"
 router
-  .route("/:id")
+  .route("/:username")
   .get(usersController.login)
   .put(usersController.update);
 
