@@ -17,9 +17,17 @@ class Login extends Component {
 
     newUserCreate = event => {
         event.preventDefault();
-        const newUsername = document.getElementById("InputUser2").innerHTML;
-        const newPass = document.getElementById("InputPassword2").innerHTML;
-        const newPassConf = document.getElementById("InputPassword3").innerHTML;
+        const newUsername = document.getElementById("InputUser2").value;
+        const newPass = document.getElementById("InputPassword2").value;
+        const newPassConf = document.getElementById("InputPassword3").value;
+        const newBudget = document.getElementById("newBudget").value;
+        if (newUsername && newPass && newPassConf && newBudget) {
+            if (newPass === newPassConf) {
+                API.createUser({info: {username: newUsername, password: newPass}, budget: newBudget})
+                    .then((res) => console.log(res))
+                    .catch(err => console.log(err));
+            }
+        }
     };
 
     userLogin = event => {
@@ -27,7 +35,7 @@ class Login extends Component {
         const currentUsername = document.getElementById("InputUser1").value;
         const currentPassword = document.getElementById("InputPassword1").value;
         if (currentUsername && currentPassword) {
-            API.getUser({username: currentUsername, password: currentPassword})
+            API.getUser({username: currentUsername})
             .then((res) => console.log(res))
             .catch(err => console.log(err));
         }
@@ -57,7 +65,7 @@ class Login extends Component {
                     <form>
                         <div className="form-group">
                             <label for="InputUser1">Username</label>
-                            <input type="email" className="form-control" id="InputUser1" aria-describedby="UserHelp" placeholder="Enter Username"/>
+                            <input className="form-control" id="InputUser1" aria-describedby="UserHelp" placeholder="Enter Username"/>
                             <small id="UserHelp" className="form-text text-muted">We'll never share your username with anyone else.</small>
                         </div>
                         <div className="form-group">
@@ -84,7 +92,7 @@ class Login extends Component {
                     <form>
                         <div className="form-group">
                             <label for="InputUser2">Username</label>
-                            <input type="email" className="form-control" id="InputUser2" aria-describedby="UserHelp" placeholder="Enter Username"/>
+                            <input className="form-control" id="InputUser2" aria-describedby="UserHelp" placeholder="Enter Username"/>
                             <small id="UserHelp" className="form-text text-muted">We'll never share your username with anyone else.</small>
                         </div>
                         <div className="form-group">
@@ -104,7 +112,7 @@ class Login extends Component {
                             <div className="input-group-prepend">
                                 <span className="input-group-text">$</span>
                             </div>
-                            <input type="text" className="form-control" aria-label="Amount (to the nearest dollar)"/>
+                            <input id="newBudget" type="text" className="form-control" aria-label="Amount (to the nearest dollar)"/>
                             <div className="input-group-append">
                                 <span className="input-group-text">.00</span>
                             </div>
