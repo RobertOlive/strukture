@@ -2,9 +2,18 @@ import React, {Component} from "react";
 import API from "../util/API";
 
 class Login extends Component {
-    state = {
-        user: {}
-    };
+    // state = {
+    //     user: {}
+    // };
+
+
+    // componentDidUpdate() {
+    //     this.login();
+    // }
+
+    // login() {
+    //     this.props.loggedIn(this.state);
+    // }
 
     newUserCreate = event => {
         event.preventDefault();
@@ -15,7 +24,7 @@ class Login extends Component {
         if (newUsername && newPass && newPassConf && newBudget) {
             if (newPass === newPassConf) {
                 API.createUser({username: newUsername, password: newPass, budget: newBudget})
-                    .then((res) => console.log(res))
+                    .then((res) => this.setState({user: res.data[0]}))
                     .catch(err => console.log(err));
             }
         }
@@ -27,7 +36,7 @@ class Login extends Component {
         const currentPassword = document.getElementById("InputPassword1").value;
         if (currentUsername && currentPassword) {
             API.getUser({username: currentUsername, password: currentPassword})
-            .then((res) => this.setState({user: res.data[0]}))
+            .then((res) => this.props.loggedIn({user: res.data[0]}))
             .catch(err => console.log(err));
         }
     };
