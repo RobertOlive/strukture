@@ -6,8 +6,8 @@ export default {
         return axios.post("/api/users", userData);
     },
     getUser: (userData) => {
-        console.log("got here, ", userData)
-        return axios.get("/api/users/" + userData.username)
+        console.log("got here", userData)
+        return axios.get("/api/users/" + userData.username, {params: userData})
     },
     updateBudget: (id) => {
         return axios.put("/api/users/" + id)

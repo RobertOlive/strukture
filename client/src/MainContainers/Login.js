@@ -35,8 +35,8 @@ class Login extends Component {
         const currentUsername = document.getElementById("InputUser1").value;
         const currentPassword = document.getElementById("InputPassword1").value;
         if (currentUsername && currentPassword) {
-            API.getUser({username: currentUsername})
-            .then((res) => console.log(res))
+            API.getUser({username: currentUsername, password: currentPassword})
+            .then((res) => console.log(res.data))
             .catch(err => console.log(err));
         }
     };

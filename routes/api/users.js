@@ -9,12 +9,9 @@ router
 
 // Matches with "api/users/:username, lets user login and update budget"
 router
-  .route("/")
-  .get((req, res) => {
-    console.log("Yo");
-  })
-  // .get(usersController.login)
-  // .put(usersController.update);
+  .route("/:username")
+  .get(usersController.login)
+  .put(usersController.update);
 
 // Matches with "api/users/todos/:id, lets user create, update, and delete to-dos"
 router
