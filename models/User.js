@@ -9,8 +9,10 @@ const userSchema = new Schema({
     budget: {type: Number, required: true},
     todos: [
         {
-            type: Schema.Types.ObjectId,
-            ref: "Todo"
+            time: {type: Date},
+            task: {type: String},
+            cost: {type: Number},
+            location: {type: String}
         }
     ]
 });

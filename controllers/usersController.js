@@ -3,7 +3,7 @@ const db = require("../models");
 module.exports = {
     create: (req, res) => {
         db.User
-            .create(req.body)
+            .create({info: {username: req.body.username, password: req.body.password}, budget: req.body.budget})
             .then(dbModel=> res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },

@@ -3,16 +3,7 @@ import API from "../util/API";
 
 class Login extends Component {
     state = {
-        newUser: {
-            username: "",
-            password: "",
-            passConf: "",
-            budget: ""
-        },
-        currentUser: {
-            username: "",
-            password: ""
-        }
+        user: {}
     };
 
     newUserCreate = event => {
@@ -23,7 +14,7 @@ class Login extends Component {
         const newBudget = document.getElementById("newBudget").value;
         if (newUsername && newPass && newPassConf && newBudget) {
             if (newPass === newPassConf) {
-                API.createUser({info: {username: newUsername, password: newPass}, budget: newBudget})
+                API.createUser({username: newUsername, password: newPass, budget: newBudget})
                     .then((res) => console.log(res))
                     .catch(err => console.log(err));
             }
@@ -36,7 +27,7 @@ class Login extends Component {
         const currentPassword = document.getElementById("InputPassword1").value;
         if (currentUsername && currentPassword) {
             API.getUser({username: currentUsername, password: currentPassword})
-            .then((res) => console.log(res.data))
+            .then((res) => this.setState({user: res.data[0]}))
             .catch(err => console.log(err));
         }
     };
@@ -117,7 +108,7 @@ class Login extends Component {
                                 <span className="input-group-text">.00</span>
                             </div>
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" onClick={this.newUserCreate} className="btn btn-primary">Submit</button>
                     </form>
                     </div>
                 </div>
