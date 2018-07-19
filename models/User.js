@@ -7,6 +7,7 @@ const userSchema = new Schema({
         password: { type: String, required: true }
     },
     budget: {type: Number, required: true},
+    moneyLeft: {type: Number},
     todos: [
         {
             time: {type: Date},

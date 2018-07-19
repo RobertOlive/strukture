@@ -18,7 +18,6 @@ class App extends Component {
 
   }
 
-
   componentDidUpdate() {
     if (this.state.user) {
       document.getElementById("username").innerHTML = this.state.user.info.username;

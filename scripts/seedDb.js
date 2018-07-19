@@ -15,6 +15,7 @@ const userSeed = [
             password: "password1"
         },
         budget: 1700,
+        moneyLeft: 1700,
         todos: [
             {
                 time: new Date(),
