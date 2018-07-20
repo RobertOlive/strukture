@@ -18,7 +18,11 @@ class BudgetSide extends Component {
                     Remaining Monthly Budget
                 </div>
                 <div className="card-body">
-                    <p className="card-text">{this.props.userData.user? ("$" + JSON.stringify(this.props.userData.user.budget)) : ("waiting on info")}</p>
+                    <p className="card-text">{this.props.userData.user? 
+                                                (this.props.userData.user.moneyLeft? 
+                                                    ("$" + JSON.stringify(this.props.userData.user.moneyLeft)
+                                                ) : ("$" + JSON.stringify(this.props.userData.user.budget))
+                                            ) : ("waiting on info")}</p>
                 </div>
             </div>
         )

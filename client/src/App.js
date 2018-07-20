@@ -21,6 +21,7 @@ class App extends Component {
   componentDidMount() {
     let userInfo = JSON.parse(sessionStorage.getItem("user"));
     this.setState(userInfo);
+    console.log(this.state);
   }
 
   componentDidUpdate() {
@@ -58,7 +59,7 @@ class App extends Component {
 
                     <Route exact path="/" render={props => (
                       this.state.user ? (
-                        <Redirect to="/todos"/>
+                        <Redirect to="/todos" userData={this.state}/>
                       ) : (
                         <NoMatchSide {...props} userData={this.state}/>
                       )
@@ -77,7 +78,7 @@ class App extends Component {
 
                     <Route exact path="/" render={props => (
                       this.state.user ? (
-                        <Redirect to="/todos"/>
+                        <Redirect to="/todos" userData={this.state}/>
                       ) : (
                         <Login {...props} loggedIn={this.handleLogin} userData={this.state}/>
                       )
@@ -97,7 +98,7 @@ class App extends Component {
 
                   <Route exact path="/" render={props => (
                       this.state.user ? (
-                        <Redirect to="/todos"/>
+                        <Redirect to="/todos" userData={this.state}/>
                       ) : (
                         <NoMatchSide {...props} userData={this.state}/>
                       )
