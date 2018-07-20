@@ -1,16 +1,28 @@
-import React from "react";
+import React, {Component} from "react";
 
-const BudgetSide = () => (
+class BudgetSide extends Component {
+    
 
-    <div className="card">
-        <div className="card-header">
-            Remaining Monthly Budget
-        </div>
-        <div className="card-body">
-            <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        </div>
-    </div>
+    componentDidMount() {
+        // console.log(this.props.userData.user.budget);
+    }
 
-);
+    componentDidUpdate() {
+        console.log(this.props.userData.user.budget);
+    }
+
+    render() {
+        return (
+            <div className="card">
+                <div className="card-header">
+                    Remaining Monthly Budget
+                </div>
+                <div className="card-body">
+                    <p className="card-text">{this.props.userData.user? ("$" + JSON.stringify(this.props.userData.user.budget)) : ("waiting on info")}</p>
+                </div>
+            </div>
+        )
+    }
+};
 
 export default BudgetSide;

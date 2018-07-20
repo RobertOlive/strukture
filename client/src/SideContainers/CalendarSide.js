@@ -1,4 +1,6 @@
 import React from "react";
+// import Calendar from "react-calendar/dist/entry.nostyle";
+import Calendar from 'react-calendar';
 
 const CalendarSide = () => (
 
@@ -7,7 +9,8 @@ const CalendarSide = () => (
             Calendar
         </div>
         <div className="card-body">
-            <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <Calendar />
+            {/* <p className="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
         </div>
     </div>
 

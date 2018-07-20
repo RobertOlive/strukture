@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import MainCont from "./components/MainCont";
 import Login from "./MainContainers/Login";
 import NoMatch from "./MainContainers/NoMatch";
 import Todos from "./MainContainers/Todos";
 import Budget from "./MainContainers/Budget";
-import Calendar from "./MainContainers/Calendar";
+import MainCalendar from "./MainContainers/MainCalendar";
 import SideCont from "./components/SideCont";
 import NoMatchSide from "./SideContainers/NoMatchSide";
 import BudgetSide from "./SideContainers/BudgetSide";
@@ -18,15 +18,24 @@ class App extends Component {
 
   }
 
+  componentDidMount() {
+    let userInfo = JSON.parse(sessionStorage.getItem("user"));
+    this.setState(userInfo);
+  }
+
   componentDidUpdate() {
     if (this.state.user) {
       document.getElementById("username").innerHTML = this.state.user.info.username;
     }
+    console.log(this.state);
   }
 
   handleLogin = (userData) => {
     this.setState(userData)
+    console.log(userData);
+    sessionStorage.setItem("user", JSON.stringify(userData));
   }
+
 
 
   render() {
@@ -46,10 +55,18 @@ class App extends Component {
               <div className="col-3">
                 <SideCont className="leftSide">
                   <Switch>
-                    <Route exact path="/" component={NoMatchSide}/>
-                    <Route exact path="/todos" component={BudgetSide}/>
-                    <Route exact path="/budget" component={CalendarSide}/>
-                    <Route exact path="/calendar" component={TodosSide}/>
+
+                    <Route exact path="/" render={props => (
+                      this.state.user ? (
+                        <Redirect to="/todos"/>
+                      ) : (
+                        <NoMatchSide {...props} userData={this.state}/>
+                      )
+                    )}/>
+
+                    <Route exact path="/todos" render={props => <BudgetSide {...props} userData={this.state}/>}/>
+                    <Route exact path="/budget" render={props => <CalendarSide {...props} userData={this.state}/>}/>
+                    <Route exact path="/calendar" render={props => <TodosSide {...props} userData={this.state}/>}/>
                   </Switch>
                 </SideCont>
               </div>
@@ -57,10 +74,18 @@ class App extends Component {
               <div className="col">
                 <MainCont>
                   <Switch>
-                    <Route exact path="/" render={(props)=> <Login {...props} loggedIn={this.handleLogin}/>}/>
-                    <Route exact path="/todos" component={Todos} />
-                    <Route exact path="/budget" component={Budget} />
-                    <Route exact path="/calendar" component={Calendar} />
+
+                    <Route exact path="/" render={props => (
+                      this.state.user ? (
+                        <Redirect to="/todos"/>
+                      ) : (
+                        <Login {...props} loggedIn={this.handleLogin} userData={this.state}/>
+                      )
+                    )}/>
+                    
+                    <Route exact path="/todos" render={props => <Todos {...props} userData={this.state}/>} />
+                    <Route exact path="/budget" render={props => <Budget {...props} userData={this.state}/>}/>
+                    <Route exact path="/calendar" render={props => <MainCalendar {...props} userData={this.state}/>}/>
                     <Route component={NoMatch} />
                   </Switch>
                 </MainCont>
@@ -69,10 +94,18 @@ class App extends Component {
               <div className="col-3">
                 <SideCont className="rightSide">
                   <Switch>
-                    <Route exact path="/" component={NoMatchSide}/>
-                    <Route exact path="/todos" component={CalendarSide}/>
-                    <Route exact path="/budget" component={TodosSide}/>
-                    <Route exact path="/calendar" component={BudgetSide}/>
+
+                  <Route exact path="/" render={props => (
+                      this.state.user ? (
+                        <Redirect to="/todos"/>
+                      ) : (
+                        <NoMatchSide {...props} userData={this.state}/>
+                      )
+                    )}/>
+
+                    <Route exact path="/todos" render={props => <CalendarSide {...props} userData={this.state}/>}/>
+                    <Route exact path="/budget" render={props => <TodosSide {...props} userData={this.state}/>}/>
+                    <Route exact path="/calendar" render={props => <BudgetSide {...props} userData={this.state}/>}/>
                   </Switch>
                 </SideCont>
               </div>
