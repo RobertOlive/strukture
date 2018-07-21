@@ -8,15 +8,17 @@ class Todos extends Component {
     }
 
     componentDidUpdate() {
-        console.log(this.props.userData);
+        console.log(this.props.userData.user);
     }
 
     render() {
         return (
         <div className="todos">
-            <ul class="list-group list-group-flush">
-                {this.props.userData? (
-                <TodoItem {...this.props}/>
+            <ul className="list-group list-group-flush">
+                {this.props.userData.user? (
+                    this.props.userData.user.todos.map(todo => {
+                        return <TodoItem {...this.props} item={todo}/>
+                    })
                 ) : (
                     "Waiting on data..."
                 )}
