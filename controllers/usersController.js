@@ -23,7 +23,7 @@ module.exports = {
     updateTodos: (req, res) => {
         console.log("getting to todos", req.body)
         db.User
-            .findOneAndUpdate({info: {username: req.body.info.username}}, {$push: {todos: req.body.todo}})
+            .findOneAndUpdate({info: {username: req.body.info.username, password: req.body.info.password}}, {$push: {todos: req.body.todo}})
             .then(dbModel => res.json(dbModel))
             .catch(err=> console.log(err));
     }
