@@ -54,7 +54,7 @@ class Login extends Component {
                         <div className="form-group">
                             <label for="InputUser1">Username</label>
                             <input className="form-control" id="InputUser1" aria-describedby="UserHelp" placeholder="Enter Username"/>
-                            <small id="UserHelp" className="form-text text-muted">We'll never share your username with anyone else.</small>
+                            <small id="UserHelp1" className="form-text text-muted">We'll never share your username with anyone else.</small>
                         </div>
                         <div className="form-group">
                             <label for="InputPassword1">Password</label>
@@ -81,7 +81,7 @@ class Login extends Component {
                         <div className="form-group">
                             <label for="InputUser2">Username</label>
                             <input className="form-control" id="InputUser2" aria-describedby="UserHelp" placeholder="Enter Username"/>
-                            <small id="UserHelp" className="form-text text-muted">We'll never share your username with anyone else.</small>
+                            <small id="UserHelp2" className="form-text text-muted">We'll never share your username with anyone else.</small>
                         </div>
                         <div className="form-group">
                             <label for="InputPassword2">Password</label>
