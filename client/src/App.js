@@ -84,7 +84,7 @@ class App extends Component {
                       )
                     )}/>
                     
-                    <Route exact path="/todos" render={props => <Todos {...props} userData={this.state}/>} />
+                    <Route exact path="/todos" render={props => <Todos {...props} loggedIn={this.handleLogin} userData={this.state}/>} />
                     <Route exact path="/budget" render={props => <Budget {...props} userData={this.state}/>}/>
                     <Route exact path="/calendar" render={props => <MainCalendar {...props} userData={this.state}/>}/>
                     <Route component={NoMatch} />
