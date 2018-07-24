@@ -12,7 +12,10 @@ class Login extends Component {
         if (newUsername && newPass && newPassConf && newBudget) {
             if (newPass === newPassConf) {
                 API.createUser({username: newUsername, password: newPass, budget: newBudget})
-                    .then((res) => this.props.loggedIn({user: res.data[0]}))
+                    .then((res) => {
+                        console.log(res.data);
+                        this.props.loggedIn({user: res.data[0]});
+                    })
                     .catch(err => console.log(err));
             }
         }
