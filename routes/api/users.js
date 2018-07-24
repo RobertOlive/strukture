@@ -11,7 +11,7 @@ router
 router
   .route("/:username")
   .get(usersController.login)
-  .put(usersController.update);
+  .put(usersController.updateTodos);
 
 // Matches with "api/users/todos/:id, lets user create, update, and delete to-dos"
 router

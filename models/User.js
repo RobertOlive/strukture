@@ -10,9 +10,9 @@ const userSchema = new Schema({
     moneyLeft: {type: Number},
     todos: [
         {
-            time: {type: Date},
+            time: {type: String},
             task: {type: String},
-            cost: {type: Number},
+            cost: {type: String},
             location: {type: String}
         }
     ]

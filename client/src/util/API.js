@@ -12,15 +12,15 @@ export default {
     updateBudget: (id) => {
         return axios.put("/api/users/" + id)
     },
+    updateTodo: userData => {
+        return axios.put("/api/users/" +userData.username, userData);
+    },
     // 
     // 
     // 
     // To-do routing --- Create to-do, update to-do, and delete
     createTodo: (id) => {
         return axios.post("/api/users/todos/" + id)
-    },
-    updateTodo: (id) => {
-        return axios.put("/api/users/todos/" + id)
     },
     deleteTodo: (id) => {
         return axios.delete("/api/users/todos/" + id)

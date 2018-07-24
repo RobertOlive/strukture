@@ -14,10 +14,17 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err=> console.log(err));
     },
-    update: (req, res) => {
+    updateBudget: (req, res) => {
         db.User
             .findByIdAndUpdate({ _id: req.params.id}, req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+    },
+    updateTodos: (req, res) => {
+        console.log("getting to todos", req.body)
+        db.User
+            .findOneAndUpdate({info: {username: req.body.info.username}}, {$push: {todos: req.body.todo}})
+            .then(dbModel => res.json(dbModel))
+            .catch(err=> console.log(err));
     }
 }
