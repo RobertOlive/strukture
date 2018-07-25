@@ -14,7 +14,7 @@ class Login extends Component {
                 API.createUser({username: newUsername, password: newPass, budget: newBudget})
                     .then((res) => {
                         console.log(res.data);
-                        this.props.loggedIn({user: res.data[0]});
+                        this.props.loggedIn({user: res.data});
                     })
                     .catch(err => console.log(err));
             }
@@ -27,7 +27,10 @@ class Login extends Component {
         const currentPassword = document.getElementById("InputPassword1").value;
         if (currentUsername && currentPassword) {
             API.getUser({username: currentUsername, password: currentPassword})
-            .then((res) => this.props.loggedIn({user: res.data[0]}))
+            .then((res) => {
+                console.log(res.data);
+                this.props.loggedIn({user: res.data[0]});
+            })
             .catch(err => console.log(err));
         }
     };
