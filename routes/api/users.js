@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const usersController = require("../../controllers/usersController");
-const todosController = require("../../controllers/todosController");
 
 // Matches with "/api/users, lets user create login"
 router
@@ -14,10 +13,10 @@ router
   .put(usersController.updateTodos);
 
 // Matches with "api/users/todos/:id, lets user create, update, and delete to-dos"
-router
-  .route("/todos/:id")
-  .post(todosController.create)
-  .put(todosController.update)
-  .delete(todosController.remove);
+// router
+//   .route("/todos/:id")
+//   .post(todosController.create)
+//   .put(todosController.update)
+//   .delete(todosController.remove);
 
 module.exports = router;
