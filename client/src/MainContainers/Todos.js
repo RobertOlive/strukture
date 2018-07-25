@@ -34,10 +34,11 @@ class Todos extends Component {
     render() {
         return (
         <div className="todos">
+            <h2 className="todoHead">{new Date().toDateString()}</h2>
             <ul className="list-group list-group-flush">
                 {this.props.userData.user? (
                     this.props.userData.user.todos.map(todo => {
-                        return <TodoItem {...this.props} item={todo}/>
+                        return <TodoItem {...this.props} key={todo} item={todo}/>
                     })
                 ) : (
                     "Waiting on data..."
@@ -73,7 +74,7 @@ class Todos extends Component {
                             <label for="todoTime">Time</label>
                             <div className="form-row" id ="todoTime">
                                 <div className="form-group col">
-                                    <select id="yearSelect" class="form-control">
+                                    <select id="yearSelect" className="form-control">
                                         <option value ="" selected>Year</option>
                                         <option>2016</option>
                                         <option>2017</option>
@@ -83,7 +84,7 @@ class Todos extends Component {
                                     </select>
                                 </div>
                                 <div className="form-group col">
-                                    <select id="monthSelect" class="form-control">
+                                    <select id="monthSelect" className="form-control">
                                         <option value='' selected>Month</option>
                                         {[...Array(12)].map((x, i) =>
                                             <option key={i+1}>{i+1}</option>
@@ -91,7 +92,7 @@ class Todos extends Component {
                                     </select>
                                 </div>
                                 <div className="form-group col">
-                                    <select id="dateSelect" class="form-control">
+                                    <select id="dateSelect" className="form-control">
                                         <option value = '' selected>Date</option>
                                         {[...Array(31)].map((x, i) =>
                                             <option key={i+1}>{i+1}</option>
@@ -99,7 +100,7 @@ class Todos extends Component {
                                     </select>
                                 </div>
                                 <div className="form-group col">
-                                    <select id="hourSelect" class="form-control">
+                                    <select id="hourSelect" className="form-control">
                                         <option value = '' selected>Hour</option>
                                         {[...Array(24)].map((x, i) =>
                                             <option key={i}>{i}</option>
@@ -108,7 +109,7 @@ class Todos extends Component {
                                     </select>
                                 </div>
                                 <div className="form-group col">
-                                    <select id="minuteSelect" class="form-control">
+                                    <select id="minuteSelect" className="form-control">
                                         <option value= '' selected>Min</option>
                                         {[...Array(60)].map((x, i) =>
                                             <option key={i}>{i}</option>

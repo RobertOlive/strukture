@@ -4,7 +4,7 @@ import Calendar from "react-calendar/dist/entry.nostyle";
 
 const CalendarSide = () => (
 
-    <div className="card">
+    <div className="card calendarSide">
         <div className="card-header">
             Calendar
         </div>

@@ -43,11 +43,11 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <div className="container-fluid">
+          <div className="container">
             <div className="row">
               <div className="header">
-                <strong>strukture</strong>
-                <div id="username"></div>
+                <span id="title"><strong><h1>strukture</h1></strong></span>
+                <span id="username"></span>
               </div>
             </div>
 

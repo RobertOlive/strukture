@@ -13,7 +13,7 @@ class BudgetSide extends Component {
 
     render() {
         return (
-            <div className="card">
+            <div className="card budgetSide">
                 <div className="card-header">
                     Remaining Monthly Budget
                 </div>

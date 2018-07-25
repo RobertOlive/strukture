@@ -1,9 +1,57 @@
 .footer {
     width: 100%;
+    height: 25px;
     position:fixed;
     bottom: 0px;
     right: 0;
-    border-top: 2px solid black;
+    background-color: lightgray;
+}
+
+.todoHead {
+    text-align: center;
+}
+
+.budgetSide {
+    border: 1px solid green;
+}
+
+.calendarSide {
+    border: 1px solid blue;
+}
+
+.card-header {
+    background-color: lightgray;
+    text-align: center;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.todos {
+    border: 1px solid red;
+}
+
+.header {
+    width: 100%;
+}
+
+#title {
+    background: -webkit-linear-gradient(right, red, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    float: left;
+    width: 50%;
+    left: 0;
+    top: 0;
+}
+
+#username {
+    float: right;
+    width: 50%;
+    right: 0;
+    top: 10;
+    text-align: right;
 }
 
 .about {
