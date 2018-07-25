@@ -43,7 +43,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <div className="container">
+          <div className="container-fluid">
             <div className="row">
               <div className="header">
                 <span id="title"><strong><h1>strukture</h1></strong></span>
@@ -53,7 +53,7 @@ class App extends Component {
 
             <div className="row">
             
-              <div className="col-3">
+              <div className="col">
                 <SideCont className="leftSide">
                   <Switch>
 
@@ -72,13 +72,13 @@ class App extends Component {
                 </SideCont>
               </div>
 
-              <div className="col">
+              <div className="col-6">
                 <MainCont>
                   <Switch>
 
                     <Route exact path="/" render={props => (
                       this.state.user ? (
-                        <Redirect to="/todos" userData={this.state}/>
+                        <Redirect to="/todos" loggedIn={this.handleLogin} userData={this.state}/>
                       ) : (
                         <Login {...props} loggedIn={this.handleLogin} userData={this.state}/>
                       )
@@ -92,7 +92,7 @@ class App extends Component {
                 </MainCont>
               </div>
 
-              <div className="col-3">
+              <div className="col">
                 <SideCont className="rightSide">
                   <Switch>
 

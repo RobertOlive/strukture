@@ -1,10 +1,31 @@
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.welcome, .intro {
+    padding: 50px;
+    text-align: center;
+}
+
+.welcome {
+    font-size: 20px;
+}
+
+.intro {
+    font-size: 30px;
+}
+
 .footer {
     width: 100%;
     height: 25px;
     position:fixed;
     bottom: 0px;
     right: 0;
-    background-color: lightgray;
+    border-top: 1px solid;
+    border-image-source: linear-gradient(to right, red, blue, green);
+    border-image-slice: 20;
+    background-image: linear-gradient(to right, white, rgb(158, 158, 158));
 }
 
 .todoHead {
@@ -20,24 +41,37 @@
 }
 
 .card-header {
+    font-size: 20px;
     background-color: lightgray;
     text-align: center;
 }
 
 .card-body {
     text-align: center;
+    overflow: auto;
 }
 
 .todos {
+    border-radius: 5px;
     border: 1px solid red;
+    padding: 10px;
+    /* border-image-source: linear-gradient(to right,red, blue);
+    border-image-slice: 20; */
+    margin-bottom: 45px;
 }
 
 .header {
+    margin-bottom: 20px;
     width: 100%;
+    position: relative;
+    border-bottom: 1px solid;
+    border-image-source: linear-gradient(to right, red, blue, green);
+    border-image-slice: 20;
+    background-image: linear-gradient(to right, white, lightgray);
 }
 
 #title {
-    background: -webkit-linear-gradient(right, red, blue);
+    background: -webkit-linear-gradient(left, red, blue, green);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     float: left;
@@ -47,10 +81,11 @@
 }
 
 #username {
+    position: absolute;
     float: right;
     width: 50%;
     right: 0;
-    top: 10;
+    top: 30;
     text-align: right;
 }
 
@@ -68,11 +103,3 @@
     bottom: 0;
     text-align: right;
 }
-
-/* .list-group-item {
-    border: 1px solid black
-} */
-
-/* .timeSpan {
-    border-right: 1px solid black;
-} */

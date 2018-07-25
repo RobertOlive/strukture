@@ -22,11 +22,16 @@ class Todos extends Component {
                 month = document.getElementById("monthSelect").value,
                 date = document.getElementById("dateSelect").value,
                 hour = document.getElementById("hourSelect").value,
-                minute = document.getElementById("minuteSelect").value;
+                minute = document.getElementById("minuteSelect").value,
+                moneyLeftfn = () => {if (this.props.userData.user.moneyLeft) {return this.props.userData.user.moneyLeft - cost} else {return this.props.userData.user.budget - cost}};
+        const moneyLeft = moneyLeftfn();
         if (task && year && month && date) {
             const tasktime = new Date(year, month, date, hour, minute);
-            API.updateTodo({info: {username: this.props.userData.user.info.username, password: this.props.userData.user.info.password}, todo: {time: tasktime, task: task, cost: cost, location: location}})
-            .then(res=> this.props.loggedIn({user: res.data}))
+            API.updateTodo({info: {username: this.props.userData.user.info.username, password: this.props.userData.user.info.password}, todo: {time: tasktime, task: task, cost: cost, location: location}, moneyLeft})
+            .then(res=> {
+                console.log(res.data);
+                return this.props.loggedIn({user: res.data});
+            })
             .catch(err=> console.log(err));
         }
     }
@@ -38,7 +43,7 @@ class Todos extends Component {
             <ul className="list-group list-group-flush">
                 {this.props.userData.user? (
                     this.props.userData.user.todos.map(todo => {
-                        return <TodoItem {...this.props} key={todo} item={todo}/>
+                        return <TodoItem {...this.props} item={todo}/>
                     })
                 ) : (
                     "Waiting on data..."
@@ -87,7 +92,7 @@ class Todos extends Component {
                                     <select id="monthSelect" className="form-control">
                                         <option value='' selected>Month</option>
                                         {[...Array(12)].map((x, i) =>
-                                            <option key={i+1}>{i+1}</option>
+                                            <option key={i}>{i+1}</option>
                                         )}
                                     </select>
                                 </div>
@@ -95,7 +100,7 @@ class Todos extends Component {
                                     <select id="dateSelect" className="form-control">
                                         <option value = '' selected>Date</option>
                                         {[...Array(31)].map((x, i) =>
-                                            <option key={i+1}>{i+1}</option>
+                                            <option key={i}>{i+1}</option>
                                         )}
                                     </select>
                                 </div>

@@ -3,7 +3,7 @@ const db = require("../models");
 module.exports = {
     create: (req, res) => {
         db.User
-            .create({info: {username: req.body.username, password: req.body.password}, budget: req.body.budget})
+            .create({info: {username: req.body.username, password: req.body.password}, budget: req.body.budget, moneyLeft: req.body.budget})
             .then(dbModel=> res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
@@ -23,8 +23,11 @@ module.exports = {
     updateTodos: (req, res) => {
         console.log("getting to todos", req.body)
         db.User
-            .findOneAndUpdate({info: {username: req.body.info.username, password: req.body.info.password}}, {$push: {todos: req.body.todo}})
-            .then(dbModel => res.json(dbModel))
+            .findOneAndUpdate({info: req.body.info}, {$push: {todos: req.body.todo}, $min: {moneyLeft: req.body.moneyLeft}}, {new: true})
+            .then(dbModel => {
+                console.log(dbModel);
+                return res.json(dbModel);
+            })
             .catch(err=> console.log(err));
     }
 }
