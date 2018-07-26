@@ -36,15 +36,41 @@ class Todos extends Component {
         }
     }
 
+    // checkDate = (currentDate, task) => {
+    //     let currentDateobj = new Date(currentDate),
+    //         taskDateobj = new Date(task.time);
+    //     const currentDatetasks = [];
+    //     if (currentDateobj.getFullYear() === taskDateobj.getFullYear() &&
+    //         currentDateobj.getMonth() === taskDateobj.getMonth() &&
+    //         currentDateobj.getDate() === taskDateobj.getDate()) {
+    //             currentDatetasks.push(task);
+    //             return currentDatetasks;
+    //         }
+    // }
+
+    checkDate = currentDate => {
+        return task => {
+            let currentDateobj = new Date(currentDate),
+                taskDateobj = new Date(task.time);
+            console.log(currentDateobj, taskDateobj)
+            const currentDatetasks = [];
+            if (currentDateobj.getFullYear() === taskDateobj.getFullYear() &&
+                currentDateobj.getMonth() === taskDateobj.getMonth() &&
+                currentDateobj.getDate() === taskDateobj.getDate()) {
+                    return <TodoItem {...this.props} item={task}/>
+                }
+        }
+    }
+
+
+
     render() {
         return (
         <div className="todos">
             <h2 className="todoHead">{new Date().toDateString()}</h2>
             <ul className="list-group list-group-flush">
                 {this.props.userData.user? (
-                    this.props.userData.user.todos.map(todo => {
-                        return <TodoItem {...this.props} item={todo}/>
-                    })
+                    this.props.userData.user.todos.map(this.checkDate(new Date().toDateString()))
                 ) : (
                     "Waiting on data..."
                 )}
@@ -92,7 +118,7 @@ class Todos extends Component {
                                     <select id="monthSelect" className="form-control">
                                         <option value='' selected>Month</option>
                                         {[...Array(12)].map((x, i) =>
-                                            <option key={i}>{i+1}</option>
+                                            <option key={i+1} value={i}>{i+1}</option>
                                         )}
                                     </select>
                                 </div>

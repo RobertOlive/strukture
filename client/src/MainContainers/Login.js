@@ -38,7 +38,7 @@ class Login extends Component {
     render () {
         return (
     <div className="login">
-        <div className="welcome">Welcome to strukture! <a href="#" data-toggle="modal" data-target="#ModalLogin">Login</a> or <a href="#" data-toggle="modal" data-target="#ModalSignUp">sign up</a> here.</div>
+        <div className="welcome">Welcome to strukture! <a className="introLinks" href="#" data-toggle="modal" data-target="#ModalLogin">Login</a> or <a className="introLinks" href="#" data-toggle="modal" data-target="#ModalSignUp">sign up</a> here.</div>
 
         <div className="intro">Everyone needs a little strukture in their life. Make your life simpler by scheduling your day, planning your month, and easily creating a budget.</div>
 

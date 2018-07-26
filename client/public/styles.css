@@ -200,3 +200,9 @@ a:hover {
     bottom: 0;
     text-align: right;
 }
+
+.introLinks {
+    background: -webkit-linear-gradient(left, red, blue, green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
