@@ -116,6 +116,7 @@ a:hover {
 
 .calendarSide {
     border: 1px solid green;
+    overflow: auto;
 }
 
 .card-header {
@@ -174,7 +175,6 @@ a:hover {
     font-size: 20px;
     color: rgb(100, 100, 100);
     position: absolute;
-    width: 50%;
     right: 0;
     text-align: right;
     margin-right: 100px;
@@ -205,4 +205,15 @@ a:hover {
     background: -webkit-linear-gradient(left, red, blue, green);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+@media only screen and (max-width: 768px) {
+    #title {
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+    }
+    #username {
+        visibility: hidden;
+    }
 }

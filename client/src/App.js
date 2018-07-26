@@ -51,6 +51,7 @@ class App extends Component {
           <div className="container-fluid">
             <div className="row">
               <div className="header">
+                
                 <span id="title"><a href="/todos"><strong><h1>strukture</h1></strong></a></span>
                 <span id="username"></span>
               </div>
@@ -79,7 +80,7 @@ class App extends Component {
                 </SideCont>
               </div>
 
-              <div className="col-6">
+              <div className="col-md">
                 <MainCont>
                   <Switch>
 
