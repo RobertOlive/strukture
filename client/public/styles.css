@@ -1,3 +1,22 @@
+html, #root {
+    background-image: linear-gradient(to right, white, rgb(250, 250, 250), white);
+}
+a {
+    text-decoration: none;
+    font-weight: normal;
+    background: -webkit-linear-gradient(left, red, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+a:hover {
+    text-decoration: none;
+    font-weight: normal;
+    background: -webkit-linear-gradient(left, red, blue, green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 ::-webkit-scrollbar {
     width: 0px;
     background: transparent;
@@ -22,7 +41,7 @@
     position:fixed;
     bottom: 0px;
     right: 0;
-    border-top: 1px solid;
+    border-top: 3px solid;
     border-image-source: linear-gradient(to right, red, blue, green);
     border-image-slice: 20;
     background-image: linear-gradient(to right, white, rgb(158, 158, 158));
@@ -33,11 +52,11 @@
 }
 
 .budgetSide {
-    border: 1px solid green;
+    border: 1px solid red;
 }
 
 .calendarSide {
-    border: 1px solid blue;
+    border: 1px solid green;
 }
 
 .card-header {
@@ -53,7 +72,7 @@
 
 .todos {
     border-radius: 5px;
-    border: 1px solid red;
+    border: 1px solid blue;
     padding: 10px;
     /* border-image-source: linear-gradient(to right,red, blue);
     border-image-slice: 20; */
@@ -78,25 +97,27 @@
     width: 50%;
     left: 0;
     top: 0;
+    margin-left: 100px;
 }
 
 #username {
     position: absolute;
-    float: right;
     width: 50%;
     right: 0;
-    top: 30;
     text-align: right;
+    margin-right: 100px;
+    margin-top: 25px;
 }
 
 .about {
+    margin-left: 100px;
     width: 50%;
-    position: absolute;
     left: 0;
     bottom: 0;
 }
 
 .copyright {
+    margin-right: 100px;
     width: 50%;
     position: absolute;
     right: 0;

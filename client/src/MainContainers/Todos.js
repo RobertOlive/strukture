@@ -122,7 +122,7 @@ class Todos extends Component {
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" className="btn btn-primary" onClick={this.addTodo}>Submit</button>
+                            <button type="submit" className="btn btn-primary" onClick={this.addTodo} data-dismiss="modal">Submit</button>
                         </form>
                         </div>
                     </div>

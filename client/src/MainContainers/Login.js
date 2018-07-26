@@ -66,7 +66,7 @@ class Login extends Component {
                             <label for="InputPassword1">Password</label>
                             <input type="password" className="form-control" id="InputPassword1" placeholder="Password"/>
                         </div>
-                        <button type="submit" className="btn btn-primary" onClick={this.userLogin}>Submit</button>
+                        <button type="submit" className="btn btn-primary" onClick={this.userLogin} data-dismiss="modal">Submit</button>
                     </form>
                     </div>
                 </div>
@@ -111,7 +111,7 @@ class Login extends Component {
                                 <span className="input-group-text">.00</span>
                             </div>
                         </div>
-                        <button type="submit" onClick={this.newUserCreate} className="btn btn-primary">Submit</button>
+                        <button type="submit" onClick={this.newUserCreate} className="btn btn-primary" data-dismiss="modal">Submit</button>
                     </form>
                     </div>
                 </div>

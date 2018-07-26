@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, Switch, Link } from "react-router-dom";
 import MainCont from "./components/MainCont";
 import Login from "./MainContainers/Login";
 import NoMatch from "./MainContainers/NoMatch";
@@ -50,7 +50,9 @@ class App extends Component {
                 <span id="username"></span>
               </div>
             </div>
+          </div>
 
+          <div className="container">
             <div className="row">
             
               <div className="col">
