@@ -1,6 +1,42 @@
+html {
+    font: gray;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.budget {
+    text-align: center;
+}
+
+.budgetMoney {
+    background: -webkit-linear-gradient(left, red, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.budgetContainer {
+    width: 70%;
+    border-radius: 5px;
+    border: 1px solid blue;
+    padding: 10px;
+    margin: 15px auto;
+}
+
+.btn {
+    display: block;
+    background-image: linear-gradient(to right, rgb(180, 100, 180), rgb(100, 100, 255));
+    border: none;
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+}
+
 html, #root {
     background-image: linear-gradient(to right, white, rgb(250, 250, 250), white);
 }
+
 a {
     text-decoration: none;
     font-weight: normal;
@@ -13,6 +49,18 @@ a:hover {
     text-decoration: none;
     font-weight: normal;
     background: -webkit-linear-gradient(left, red, blue, green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.calSide {
+    background: -webkit-linear-gradient(left, blue, green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.calSide:hover {
+    background: -webkit-linear-gradient(left, red, blue);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -47,11 +95,15 @@ a:hover {
     background-image: linear-gradient(to right, white, rgb(158, 158, 158));
 }
 
-.todoHead {
+.todoHead, .budgetHead {
+    padding: 10px;
     text-align: center;
+    background: -webkit-linear-gradient(left, red, blue, green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.budgetSide {
+.budgetSide, .todoSide {
     border: 1px solid red;
 }
 
@@ -61,7 +113,7 @@ a:hover {
 
 .card-header {
     font-size: 20px;
-    background-color: lightgray;
+    background-image: linear-gradient(to right, white, lightgray);
     text-align: center;
 }
 
@@ -70,7 +122,7 @@ a:hover {
     overflow: auto;
 }
 
-.todos {
+.todos, .budget {
     border-radius: 5px;
     border: 1px solid blue;
     padding: 10px;

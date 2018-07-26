@@ -8,7 +8,9 @@ const CalendarSide = () => (
 
     <div className="card calendarSide">
         <div className="card-header">
-            Calendar
+            <a className="calSide" href="/calendar">
+                Calendar
+            </a>
         </div>
         <div className="card-body">
             <DayPicker />
