@@ -15,7 +15,7 @@ import TodosSide from "./SideContainers/TodosSide";
 
 class App extends Component {
   state = {
-
+    selectedDay: new Date().toDateString()
   }
 
   componentDidMount() {
@@ -33,8 +33,13 @@ class App extends Component {
 
   handleLogin = (userData) => {
     this.setState(userData)
-    console.log(userData);
+    console.log(this.state);
     sessionStorage.setItem("user", JSON.stringify(userData));
+  }
+
+  handleDate = date => {
+    // console.log(date);
+    this.setState(date);
   }
 
 
@@ -68,7 +73,7 @@ class App extends Component {
                     )}/>
 
                     <Route exact path="/todos" render={props => <BudgetSide {...props} userData={this.state}/>}/>
-                    <Route exact path="/budget" render={props => <CalendarSide {...props} userData={this.state}/>}/>
+                    <Route exact path="/budget" render={props => <CalendarSide {...props} userData={this.state} date={this.handleDate}/>}/>
                     <Route exact path="/calendar" render={props => <TodosSide {...props} userData={this.state}/>}/>
                   </Switch>
                 </SideCont>
@@ -106,7 +111,7 @@ class App extends Component {
                       )
                     )}/>
 
-                    <Route exact path="/todos" render={props => <CalendarSide {...props} userData={this.state}/>}/>
+                    <Route exact path="/todos" render={props => <CalendarSide {...props} userData={this.state} date={this.handleDate}/>}/>
                     <Route exact path="/budget" render={props => <TodosSide {...props} userData={this.state}/>}/>
                     <Route exact path="/calendar" render={props => <BudgetSide {...props} userData={this.state}/>}/>
                   </Switch>

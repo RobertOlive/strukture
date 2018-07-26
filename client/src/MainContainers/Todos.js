@@ -36,23 +36,11 @@ class Todos extends Component {
         }
     }
 
-    // checkDate = (currentDate, task) => {
-    //     let currentDateobj = new Date(currentDate),
-    //         taskDateobj = new Date(task.time);
-    //     const currentDatetasks = [];
-    //     if (currentDateobj.getFullYear() === taskDateobj.getFullYear() &&
-    //         currentDateobj.getMonth() === taskDateobj.getMonth() &&
-    //         currentDateobj.getDate() === taskDateobj.getDate()) {
-    //             currentDatetasks.push(task);
-    //             return currentDatetasks;
-    //         }
-    // }
-
     checkDate = currentDate => {
         return task => {
             let currentDateobj = new Date(currentDate),
                 taskDateobj = new Date(task.time);
-            console.log(currentDateobj, taskDateobj)
+            // console.log(currentDateobj, taskDateobj)
             const currentDatetasks = [];
             if (currentDateobj.getFullYear() === taskDateobj.getFullYear() &&
                 currentDateobj.getMonth() === taskDateobj.getMonth() &&
@@ -67,10 +55,10 @@ class Todos extends Component {
     render() {
         return (
         <div className="todos">
-            <h2 className="todoHead">{new Date().toDateString()}</h2>
+            <h2 className="todoHead">{this.props.userData.selectedDay}</h2>
             <ul className="list-group list-group-flush">
                 {this.props.userData.user? (
-                    this.props.userData.user.todos.map(this.checkDate(new Date().toDateString()))
+                    this.props.userData.user.todos.map(this.checkDate(this.props.userData.selectedDay))
                 ) : (
                     "Waiting on data..."
                 )}

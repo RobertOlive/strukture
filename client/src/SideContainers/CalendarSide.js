@@ -1,24 +1,45 @@
-import React from "react";
+import React, {Component} from "react";
 // import Calendar from "react-calendar/dist/entry.nostyle";
 // import Calendar from 'react-calendar';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
-const CalendarSide = () => (
+class CalendarSide extends Component {
+    constructor(props) {
+        super(props);
+        this.handleDayClick = this.handleDayClick.bind(this);
+        this.state = {
+          selectedDay: null,
+        };
+    }
 
-    <div className="card calendarSide">
-        <div className="card-header">
-            <a className="calSide" href="/calendar">
-                Calendar
-            </a>
-        </div>
-        <div className="card-body">
-            <DayPicker />
-            {/* <Calendar /> */}
-            {/* <p className="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
-        </div>
-    </div>
+    handleDayClick(day, { selected }) {
+        this.setState({
+          selectedDay: selected ? undefined : day,
+        });
+        this.props.date({selectedDay: day.toDateString()});
+    }
 
-);
+
+
+    componentDidUpdate() {
+        console.log(this.state);
+    }
+
+    render() {
+        return (
+            <div className="card calendarSide">
+                <div className="card-header">
+                    <a className="calSide" href="/calendar">
+                        Calendar
+                    </a>
+                </div>
+                <div className="card-body">
+                    <DayPicker selectedDays={this.state.selectedDay} onDayClick={this.handleDayClick}/>
+                </div>
+            </div>
+        )
+    }
+};
 
 export default CalendarSide;
