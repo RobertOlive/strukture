@@ -1,9 +1,10 @@
 import React from "react";
-import Calendar from 'react-calendar';
+import DayPicker from 'react-day-picker';
+import 'react-day-picker/lib/style.css';
 
 const MainCalendar = () => (
     <div className="calendar">
-        <Calendar/>
+        <DayPicker />
     </div>
 );
 

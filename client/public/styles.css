@@ -1,6 +1,4 @@
-html {
-    font: gray;
-}
+
 
 h1 {
     font-size: 50px;
@@ -40,9 +38,11 @@ html, #root {
 a {
     text-decoration: none;
     font-weight: normal;
-    background: -webkit-linear-gradient(left, red, blue);
+    color: rgb(100, 100, 100);
+
+    /* background: -webkit-linear-gradient(left, red, blue);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
 }
 
 a:hover {
@@ -54,9 +54,11 @@ a:hover {
 }
 
 .calSide {
-    background: -webkit-linear-gradient(left, blue, green);
+    /* background: -webkit-linear-gradient(left, blue, green);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
+    color: rgb(100, 100, 100);
+
 }
 
 .calSide:hover {
@@ -71,8 +73,13 @@ a:hover {
 }
 
 .welcome, .intro {
+    color: rgb(100, 100, 100);
     padding: 50px;
     text-align: center;
+}
+
+.todoSide {
+    color: rgb(100, 100, 100);
 }
 
 .welcome {
@@ -123,6 +130,8 @@ a:hover {
 }
 
 .todos, .budget {
+    color: rgb(100, 100, 100);
+
     border-radius: 5px;
     border: 1px solid blue;
     padding: 10px;
@@ -152,7 +161,18 @@ a:hover {
     margin-left: 100px;
 }
 
+.budgetBody {
+    color: rgb(100, 100, 100);
+}
+
+.budget {
+    border: 1px solid rgb(100, 100, 100);
+
+}
+
 #username {
+    font-size: 20px;
+    color: rgb(100, 100, 100);
     position: absolute;
     width: 50%;
     right: 0;
@@ -162,6 +182,8 @@ a:hover {
 }
 
 .about {
+    color: rgb(100, 100, 100);
+
     margin-left: 100px;
     width: 50%;
     left: 0;
@@ -169,6 +191,8 @@ a:hover {
 }
 
 .copyright {
+    color: rgb(100, 100, 100);
+
     margin-right: 100px;
     width: 50%;
     position: absolute;
