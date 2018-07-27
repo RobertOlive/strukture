@@ -61,7 +61,7 @@ class App extends Component {
           <div className="container">
             <div className="row">
             
-              <div className="col">
+              <div className="col-md">
                 <SideCont className="leftSide">
                   <Switch>
 
@@ -80,7 +80,7 @@ class App extends Component {
                 </SideCont>
               </div>
 
-              <div className="col-md">
+              <div className="col-md-6">
                 <MainCont>
                   <Switch>
 
@@ -100,7 +100,7 @@ class App extends Component {
                 </MainCont>
               </div>
 
-              <div className="col">
+              <div className="col-md">
                 <SideCont className="rightSide">
                   <Switch>
 

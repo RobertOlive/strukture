@@ -112,11 +112,13 @@ a:hover {
 
 .budgetSide, .todoSide {
     border: 1px solid red;
+    margin-bottom: 25px;
 }
 
 .calendarSide {
     border: 1px solid green;
     overflow: auto;
+    margin-bottom: 25px;
 }
 
 .card-header {
@@ -138,7 +140,7 @@ a:hover {
     padding: 10px;
     /* border-image-source: linear-gradient(to right,red, blue);
     border-image-slice: 20; */
-    margin-bottom: 45px;
+    margin-bottom: 25px;
 }
 
 .header {
