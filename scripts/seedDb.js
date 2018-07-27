@@ -49,6 +49,7 @@ const userSeed = [
             password: "password2"
         },
         budget: 1800,
+        moneyLeft: 1800,
         todos: [
             {
                 time: new Date(),
@@ -82,6 +83,7 @@ const userSeed = [
             password: "password3"
         },
         budget: 1900,
+        moneyLeft: 1900,
         todos: [
             {
                 time: new Date(),
@@ -115,6 +117,7 @@ const userSeed = [
             password: "password4"
         },
         budget: 2000,
+        moneyLeft: 2000,
         todos: [
             {
                 time: new Date(),

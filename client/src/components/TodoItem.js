@@ -2,14 +2,6 @@ import React, {Component} from "react";
 
 class TodoItem extends Component {
 
-    componentDidMount() {
-
-    }
-
-    componentDidUpdate() {
-        console.log(this.props.item);
-    }
-
     render () {
         const time = new Date(this.props.item.time),
                 year = time.getFullYear(),

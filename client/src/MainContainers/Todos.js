@@ -5,14 +5,6 @@ import API from "../util/API";
 
 class Todos extends Component {
 
-    componentDidMount () {
-        console.log(this.props.userData)
-    }
-
-    componentDidUpdate() {
-        console.log(this.props.userData.user);
-    }
-
     addTodo = event => {
         event.preventDefault();
         const task = document.getElementById("task").value,
@@ -29,7 +21,6 @@ class Todos extends Component {
             const tasktime = new Date(year, month, date, hour, minute);
             API.updateTodo({info: {username: this.props.userData.user.info.username, password: this.props.userData.user.info.password}, todo: {time: tasktime, task: task, cost: cost, location: location}, moneyLeft})
             .then(res=> {
-                console.log(res.data);
                 return this.props.loggedIn({user: res.data});
             })
             .catch(err=> console.log(err));
@@ -40,12 +31,10 @@ class Todos extends Component {
         return task => {
             let currentDateobj = new Date(currentDate),
                 taskDateobj = new Date(task.time);
-            // console.log(currentDateobj, taskDateobj)
-            const currentDatetasks = [];
             if (currentDateobj.getFullYear() === taskDateobj.getFullYear() &&
                 currentDateobj.getMonth() === taskDateobj.getMonth() &&
                 currentDateobj.getDate() === taskDateobj.getDate()) {
-                    return <TodoItem {...this.props} item={task}/>
+                    return <TodoItem key={task.time} {...this.props} item={task}/>
                 }
         }
     }
@@ -54,97 +43,98 @@ class Todos extends Component {
 
     render() {
         return (
-        <div className="todos">
-            <h2 className="todoHead">{this.props.userData.selectedDay}</h2>
-            <ul className="list-group list-group-flush">
-                {this.props.userData.user? (
-                    this.props.userData.user.todos.map(this.checkDate(this.props.userData.selectedDay))
-                ) : (
-                    "Waiting on data..."
-                )}
-            </ul>
-            <button className="btn btn-primary" data-toggle="modal" data-target="#ModalTodo">Add to-do item</button>
+            <div className="todos">
+                <h2 className="todoHead">{this.props.userData.selectedDay}</h2>
+                <ul className="list-group list-group-flush">
+                    {this.props.userData.user? (
+                        this.props.userData.user.todos.map(this.checkDate(this.props.userData.selectedDay))
+                    ) : (
+                        "Waiting on data..."
+                    )}
+                </ul>
+                <button className="btn btn-primary" data-toggle="modal" data-target="#ModalTodo">Add to-do item</button>
 
-            <div className="modal fade" id="ModalTodo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-                <div className="modal-dialog" role="document">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="ModalLabel">add to-do</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div className="modal-body">
-                        <form>
-                            <div className="form-group">
-                                <label for="task">Task</label>
-                                <input className="form-control" id='task' placeholder="What do you need to do?"/>
+
+                <div className="modal fade" id="ModalTodo" tabIndex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="ModalLabel">add to-do</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                            <div className="form-group">
-                                <label for="location">Location</label>
-                                <input className="form-control" id="location" placeholder="Location" aria-describedby="UserHelp3"/>
-                                <small id="UserHelp3" className="form-text text-muted">Location is optional.</small>
+                            <div className="modal-body">
+                            <form>
+                                <div className="form-group">
+                                    <label htmlFor="task">Task</label>
+                                    <input className="form-control" id='task' placeholder="What do you need to do?"/>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="location">Location</label>
+                                    <input className="form-control" id="location" placeholder="Location" aria-describedby="UserHelp3"/>
+                                    <small id="UserHelp3" className="form-text text-muted">Location is optional.</small>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="cost">Cost</label>
+                                    <input className="form-control" id="cost" placeholder="Cost" aria-describedby="UserHelp4"/>
+                                    <small id="UserHelp4" className="form-text text-muted">Please round to the nearest dollar -- Cost is optional.</small>
+                                </div>
+                                <label htmlFor="todoTime">Time</label>
+                                <div className="form-row" id ="todoTime">
+                                    <div className="form-group col">
+                                        <select id="yearSelect" className="form-control">
+                                            <option value ="" selected>Year</option>
+                                            <option>2016</option>
+                                            <option>2017</option>
+                                            <option>2018</option>
+                                            <option>2019</option>
+                                            <option>2020</option>
+                                        </select>
+                                    </div>
+                                    <div className="form-group col">
+                                        <select id="monthSelect" className="form-control">
+                                            <option value='' selected>Month</option>
+                                            {[...Array(12)].map((x, i) =>
+                                                <option key={i+1} value={i}>{i+1}</option>
+                                            )}
+                                        </select>
+                                    </div>
+                                    <div className="form-group col">
+                                        <select id="dateSelect" className="form-control">
+                                            <option value = '' selected>Date</option>
+                                            {[...Array(31)].map((x, i) =>
+                                                <option key={i}>{i+1}</option>
+                                            )}
+                                        </select>
+                                    </div>
+                                    <div className="form-group col">
+                                        <select id="hourSelect" className="form-control">
+                                            <option value = '' selected>Hour</option>
+                                            {[...Array(24)].map((x, i) =>
+                                                <option key={i}>{i}</option>
+                                            )}
+                                            <option>24</option>
+                                        </select>
+                                    </div>
+                                    <div className="form-group col">
+                                        <select id="minuteSelect" className="form-control">
+                                            <option value= '' selected>Min</option>
+                                            {[...Array(60)].map((x, i) =>
+                                                <option key={i}>{i}</option>
+                                            )}
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" className="btn btn-primary" onClick={this.addTodo} data-dismiss="modal">Submit</button>
+                            </form>
                             </div>
-                            <div className="form-group">
-                                <label for="cost">Cost</label>
-                                <input className="form-control" id="cost" placeholder="Cost" aria-describedby="UserHelp4"/>
-                                <small id="UserHelp4" className="form-text text-muted">Please round to the nearest dollar -- Cost is optional.</small>
-                            </div>
-                            <label for="todoTime">Time</label>
-                            <div className="form-row" id ="todoTime">
-                                <div className="form-group col">
-                                    <select id="yearSelect" className="form-control">
-                                        <option value ="" selected>Year</option>
-                                        <option>2016</option>
-                                        <option>2017</option>
-                                        <option>2018</option>
-                                        <option>2019</option>
-                                        <option>2020</option>
-                                    </select>
-                                </div>
-                                <div className="form-group col">
-                                    <select id="monthSelect" className="form-control">
-                                        <option value='' selected>Month</option>
-                                        {[...Array(12)].map((x, i) =>
-                                            <option key={i+1} value={i}>{i+1}</option>
-                                        )}
-                                    </select>
-                                </div>
-                                <div className="form-group col">
-                                    <select id="dateSelect" className="form-control">
-                                        <option value = '' selected>Date</option>
-                                        {[...Array(31)].map((x, i) =>
-                                            <option key={i}>{i+1}</option>
-                                        )}
-                                    </select>
-                                </div>
-                                <div className="form-group col">
-                                    <select id="hourSelect" className="form-control">
-                                        <option value = '' selected>Hour</option>
-                                        {[...Array(24)].map((x, i) =>
-                                            <option key={i}>{i}</option>
-                                        )}
-                                        <option>24</option>
-                                    </select>
-                                </div>
-                                <div className="form-group col">
-                                    <select id="minuteSelect" className="form-control">
-                                        <option value= '' selected>Min</option>
-                                        {[...Array(60)].map((x, i) =>
-                                            <option key={i}>{i}</option>
-                                        )}
-                                    </select>
-                                </div>
-                            </div>
-                            <button type="submit" className="btn btn-primary" onClick={this.addTodo} data-dismiss="modal">Submit</button>
-                        </form>
                         </div>
                     </div>
                 </div>
+                
+
             </div>
-
-
-        </div>
         )
     }
 };

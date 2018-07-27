@@ -9,20 +9,10 @@ export default {
         console.log("got here", userData)
         return axios.get("/api/users/" + userData.username, {params: userData})
     },
-    updateBudget: (id) => {
-        return axios.put("/api/users/" + id)
-    },
     updateTodo: userData => {
         return axios.put("/api/users/" +userData.username, userData);
-    },
-    // 
-    // 
-    // 
-    // To-do routing --- Create to-do, update to-do, and delete
-    createTodo: (id) => {
-        return axios.post("/api/users/todos/" + id)
-    },
-    deleteTodo: (id) => {
-        return axios.delete("/api/users/todos/" + id)
     }
+    // updateBudget: (id) => {
+    //     return axios.put("/api/users/" + id)
+    // },
 }
