@@ -1,8 +1,6 @@
 import React, {Component} from "react";
 
 class TodosSide extends Component {
-
-
     render() {
         return (
             <div className="card todoSide">
@@ -13,11 +11,15 @@ class TodosSide extends Component {
                 </div>
                 <div className="card-body">
                     <p><h4>Next Task: </h4></p>
+
                     {this.props.userData.user? (
-                        <h4>{this.props.userData.user.todos[0].task}</h4>
+
+                    <h4>{this.props.userData.user.todos[0].task}</h4>
+
                     ) : (
-                        "Waiting on data..."
-                    )}
+
+                    "Waiting on data...")}
+                    
                 </div>
             </div>
         )

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Redirect, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, Switch} from "react-router-dom";
 import MainCont from "./components/MainCont";
 import Login from "./MainContainers/Login";
 import NoMatch from "./MainContainers/NoMatch";
@@ -21,19 +21,19 @@ class App extends Component {
   componentDidMount() {
     let userInfo = JSON.parse(sessionStorage.getItem("user"));
     this.setState(userInfo);
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   componentDidUpdate() {
     if (this.state.user) {
       document.getElementById("username").innerHTML = this.state.user.info.username;
     }
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   handleLogin = (userData) => {
     this.setState(userData)
-    console.log(this.state);
+    // console.log(this.state);
     sessionStorage.setItem("user", JSON.stringify(userData));
   }
 
