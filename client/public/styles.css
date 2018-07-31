@@ -1,7 +1,9 @@
-
-
 h1 {
     font-size: 50px;
+}
+
+.sideCont {
+    margin: auto -10px;
 }
 
 .budget {
@@ -39,10 +41,6 @@ a {
     text-decoration: none;
     font-weight: normal;
     color: rgb(100, 100, 100);
-
-    /* background: -webkit-linear-gradient(left, red, blue);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
 }
 
 a:hover {
@@ -54,11 +52,7 @@ a:hover {
 }
 
 .calSide {
-    /* background: -webkit-linear-gradient(left, blue, green);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
     color: rgb(100, 100, 100);
-
 }
 
 .calSide:hover {
@@ -207,6 +201,10 @@ a:hover {
     background: -webkit-linear-gradient(left, red, blue, green);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.taskMove {
+    margin-left: 15%;
 }
 
 @media only screen and (max-width: 768px) {

@@ -21,6 +21,7 @@ class Todos extends Component {
             const tasktime = new Date(year, month, date, hour, minute);
             API.updateTodo({info: {username: this.props.userData.user.info.username, password: this.props.userData.user.info.password}, todo: {time: tasktime, task: task, cost: cost, location: location}, moneyLeft})
             .then(res=> {
+                res.data.todos.sort((a, b)=> {return new Date(a.time) - new Date(b.time)});
                 return this.props.loggedIn({user: res.data});
             })
             .catch(err=> console.log(err));
