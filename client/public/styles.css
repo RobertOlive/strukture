@@ -208,6 +208,17 @@ a:hover {
 }
 
 @media only screen and (max-width: 768px) {
+    .container {
+        display: flex; 
+        flex-direction: column;
+    }
+    .col-md-6 {
+        order: 1;
+    }
+    .col-md {
+        order: 2;
+    }
+
     #title {
         width: 100%;
         text-align: center;
