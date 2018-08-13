@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const db = require("../models");
+// this is just a script to run to seed the database during development
 
-// This file empties the Books collection and inserts the books below
+const mongoose = require("mongoose"),
+        db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||

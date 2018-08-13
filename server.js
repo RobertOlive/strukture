@@ -1,10 +1,10 @@
-const express = require("express");
-const path = require("path");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-const PORT = process.env.PORT || 3001;
-const app = express();
-const routes = require("./routes");
+const express = require("express"),
+      path = require("path"),
+      bodyParser = require("body-parser"),
+      mongoose = require("mongoose"),
+      PORT = process.env.PORT || 3001,
+      app = express(),
+      routes = require("./routes");
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));

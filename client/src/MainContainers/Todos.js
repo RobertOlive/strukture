@@ -35,7 +35,7 @@ class Todos extends Component {
             if (currentDateobj.getFullYear() === taskDateobj.getFullYear() &&
                 currentDateobj.getMonth() === taskDateobj.getMonth() &&
                 currentDateobj.getDate() === taskDateobj.getDate()) {
-                    return <TodoItem key={task.time} {...this.props} item={task}/>
+                    return <TodoItem key={task._id} {...this.props} item={task}/>
                 }
         }
     }

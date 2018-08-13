@@ -4,8 +4,7 @@ const usersController = require("../controllers/usersController")
 // const apiRoutes = require("./api");
 
 // API Routes
-// router.use("/api", apiRoutes);
-// router.get("/api/users/:username", usersController.login)
+
 router
   .route("/api/users/")
   .post(usersController.create);
