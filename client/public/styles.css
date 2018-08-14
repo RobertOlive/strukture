@@ -1,4 +1,4 @@
-.budget, .login, .calendar, .noMatch, .todos,
+.budget, .calendar, .noMatch, .todos,
     .budgetSide, .calendarSide, .todoSide {
     box-shadow: 3px 3px 5px grey;
 }
