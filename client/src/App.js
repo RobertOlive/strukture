@@ -31,7 +31,7 @@ class App extends Component {
     // console.log(this.state);
   }
 
-  handleLogin = (userData) => {
+  handleLogin = userData => {
     this.setState(userData)
     // console.log(this.state);
     sessionStorage.setItem("user", JSON.stringify(userData));

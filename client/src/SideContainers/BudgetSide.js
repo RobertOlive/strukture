@@ -11,19 +11,19 @@ class BudgetSide extends Component {
                         Remaining Monthly Budget
                     </a>
                 </div>
-                    <div className="card-body budgetBody">
-                        {/* <p> */}
-                            <h1 className="card-text">
-                                {this.props.userData.user? (
+                <div className="card-body budgetBody">
+                    {/* <p> */}
+                        <h1 className="card-text">
+                            {this.props.userData.user? (
 
-                                "$" + JSON.stringify(this.props.userData.user.moneyLeft)
+                            "$" + JSON.stringify(this.props.userData.user.moneyLeft)
 
-                                ) : (
+                            ) : (
                                     
-                                "waiting on info")}
-                            </h1>
-                        {/* </p> */}
-                    </div>
+                            "waiting on info")}
+                        </h1>
+                    {/* </p> */}
+                </div>
             </div>
         )
     }
