@@ -14,7 +14,8 @@ class Login extends Component {
             if (newPass === newPassConf) {
                 API.createUser({username: newUsername, password: newPass, budget: newBudget})
                     .then(res => {
-                        this.props.loggedIn({user: res.data});
+                        console.log(this.props)
+                        this.props.handleLogin({user: res.data});
                     })
                     .catch(err => console.log(err));
             }
@@ -30,7 +31,7 @@ class Login extends Component {
         if (currentUsername && currentPassword) {
             API.getUser({username: currentUsername, password: currentPassword})
             .then(res => {
-                this.props.loggedIn({user: res.data[0]});
+                this.props.handleLogin({user: res.data[0]});
             })
             .catch(err => console.log(err));
         }
@@ -39,7 +40,7 @@ class Login extends Component {
     render () {
         return (
             <div className="login">
-                <div className="welcome">Welcome to strukture! <a className="introLinks" href="#" data-toggle="modal" data-target="#ModalLogin">Login</a> or <a className="introLinks" href="#" data-toggle="modal" data-target="#ModalSignUp">sign up</a> here.</div>
+                <div className="welcome">Welcome to strukture! <a className="introLinks" data-toggle="modal" data-target="#ModalLogin">Login</a> or <a className="introLinks" data-toggle="modal" data-target="#ModalSignUp">sign up</a> here.</div>
 
                 <div className="intro">Everyone needs a little strukture in their life. Make your life simpler by scheduling your day, planning your month, and easily creating a budget.</div>
 
@@ -56,12 +57,12 @@ class Login extends Component {
                             <div className="modal-body">
                             <form>
                                 <div className="form-group">
-                                    <label for="InputUser1">Username</label>
+                                    <label htmlFor="InputUser1">Username</label>
                                     <input className="form-control" id="InputUser1" aria-describedby="UserHelp" placeholder="Enter Username"/>
                                     <small id="UserHelp1" className="form-text text-muted">We'll never share your username with anyone else.</small>
                                 </div>
                                 <div className="form-group">
-                                    <label for="InputPassword1">Password</label>
+                                    <label htmlFor="InputPassword1">Password</label>
                                     <input type="password" className="form-control" id="InputPassword1" placeholder="Password"/>
                                 </div>
                                 <button type="submit" className="btn btn-primary" onClick={this.userLogin} data-dismiss="modal">Submit</button>
@@ -84,18 +85,18 @@ class Login extends Component {
                             <div className="modal-body">
                             <form>
                                 <div className="form-group">
-                                    <label for="InputUser2">Username</label>
+                                    <label htmlFor="InputUser2">Username</label>
                                     <input className="form-control" id="InputUser2" aria-describedby="UserHelp" placeholder="Enter Username"/>
                                     <small id="UserHelp2" className="form-text text-muted">We'll never share your username with anyone else.</small>
                                 </div>
                                 <div className="form-group">
-                                    <label for="InputPassword2">Password</label>
+                                    <label htmlFor="InputPassword2">Password</label>
                                     <input type="password" className="form-control" id="InputPassword2" aria-describedby="UserHelp2" placeholder="Password"/>
                                     <small id="UserHelp2" className="form-text text-muted">Please make sure that both passwords match.</small>
 
                                 </div>
                                 <div className="form-group">
-                                    <label for="InputPassword3">Confirm Password</label>
+                                    <label htmlFor="InputPassword3">Confirm Password</label>
                                     <input type="password" className="form-control" id="InputPassword3" placeholder="Confirm Password"/>
                                 </div>
 

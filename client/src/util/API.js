@@ -2,10 +2,10 @@ import axios from "axios";
 
 export default {
     // User routing --- Create user, retrieve user data (includes to-dos), update budget
-    createUser: (userData) => {
+    createUser: userData => {
         return axios.post("/api/users", userData);
     },
-    getUser: (userData) => {
+    getUser: userData => {
         console.log("got here", userData)
         return axios.get("/api/users/" + userData.username, {params: userData})
     },

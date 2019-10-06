@@ -1,22 +1,235 @@
+.budget, .calendar, .noMatch, .todos,
+    .budgetSide, .calendarSide, .todoSide {
+    box-shadow: 3px 3px 5px grey;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.sideCont {
+    margin: auto -10px;
+}
+
+.budget {
+    text-align: center;
+}
+
+.budgetMoney {
+    background: -webkit-linear-gradient(left, red, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.budgetContainer {
+    width: 70%;
+    border-radius: 5px;
+    border: 1px solid blue;
+    padding: 10px;
+    margin: 15px auto;
+}
+
+.btn {
+    display: block;
+    background-image: linear-gradient(to right, rgb(180, 100, 180), rgb(100, 100, 255));
+    border: none;
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+html, #root {
+    background-image: linear-gradient(to right, white, rgb(250, 250, 250), white);
+}
+
+a {
+    text-decoration: none;
+    font-weight: normal;
+    color: rgb(100, 100, 100);
+}
+
+a:hover {
+    text-decoration: none;
+    font-weight: normal;
+    background: -webkit-linear-gradient(left, red, blue, green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.calSide {
+    color: rgb(100, 100, 100);
+}
+
+.calSide:hover {
+    background: -webkit-linear-gradient(left, red, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.welcome, .intro {
+    color: rgb(100, 100, 100);
+    padding: 50px;
+    text-align: center;
+}
+
+.todoSide {
+    color: rgb(100, 100, 100);
+}
+
+.welcome {
+    font-size: 20px;
+}
+
+.intro {
+    font-size: 30px;
+}
+
 .footer {
     width: 100%;
+    height: 25px;
     position:fixed;
     bottom: 0px;
     right: 0;
-    border-top: 2px solid black;
+    border-top: 3px solid;
+    border-image-source: linear-gradient(to right, red, blue, green);
+    border-image-slice: 20;
+    background-image: linear-gradient(to right, white, rgb(158, 158, 158));
+}
+
+.todoHead, .budgetHead {
+    padding: 10px;
+    text-align: center;
+    background: -webkit-linear-gradient(left, red, blue, green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.budgetSide, .todoSide {
+    border: 1px solid red;
+    margin-bottom: 25px;
+}
+
+.calendarSide {
+    border: 1px solid green;
+    overflow: auto;
+    margin-bottom: 25px;
+}
+
+.card-header {
+    font-size: 20px;
+    background-image: linear-gradient(to right, white, lightgray);
+    text-align: center;
+}
+
+.card-body {
+    text-align: center;
+    overflow: auto;
+}
+
+.todos, .budget {
+    color: rgb(100, 100, 100);
+
+    border-radius: 5px;
+    border: 1px solid blue;
+    padding: 10px;
+    /* border-image-source: linear-gradient(to right,red, blue);
+    border-image-slice: 20; */
+    margin-bottom: 25px;
+}
+
+.header {
+    margin-bottom: 20px;
+    width: 100%;
+    position: relative;
+    border-bottom: 1px solid;
+    border-image-source: linear-gradient(to right, red, blue, green);
+    border-image-slice: 20;
+    background-image: linear-gradient(to right, white, lightgray);
+}
+
+#title {
+    background: -webkit-linear-gradient(left, red, blue, green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    float: left;
+    width: 50%;
+    left: 0;
+    top: 0;
+    margin-left: 100px;
+}
+
+.budgetBody {
+    color: rgb(100, 100, 100);
+}
+
+.budget {
+    border: 1px solid rgb(100, 100, 100);
+
+}
+
+#username {
+    font-size: 20px;
+    color: rgb(100, 100, 100);
+    position: absolute;
+    right: 0;
+    text-align: right;
+    margin-right: 100px;
+    margin-top: 25px;
 }
 
 .about {
+    color: rgb(100, 100, 100);
+
+    margin-left: 100px;
     width: 50%;
-    position: absolute;
     left: 0;
     bottom: 0;
 }
 
 .copyright {
+    color: rgb(100, 100, 100);
+
+    margin-right: 100px;
     width: 50%;
     position: absolute;
     right: 0;
     bottom: 0;
     text-align: right;
+}
+
+.introLinks {
+    background: -webkit-linear-gradient(left, red, blue, green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.taskMove {
+    margin-left: 15%;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        display: flex; 
+        flex-direction: column;
+    }
+    .col-md-6 {
+        order: 1;
+    }
+    .col-md {
+        order: 2;
+    }
+
+    #title {
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+    }
+    #username {
+        visibility: hidden;
+    }
 }

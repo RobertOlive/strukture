@@ -86,13 +86,13 @@ class App extends Component {
 
                     <Route exact path="/" render={props => (
                       this.state.user ? (
-                        <Redirect to="/todos" loggedIn={this.handleLogin} userData={this.state}/>
+                        <Redirect to="/todos" handleLogin={this.handleLogin} userData={this.state}/>
                       ) : (
-                        <Login {...props} loggedIn={this.handleLogin} userData={this.state}/>
+                        <Login {...props} handleLogin={this.handleLogin} userData={this.state}/>
                       )
                     )}/>
                     
-                    <Route exact path="/todos" render={props => <Todos {...props} loggedIn={this.handleLogin} userData={this.state}/>} />
+                    <Route exact path="/todos" render={props => <Todos {...props} handleLogin={this.handleLogin} userData={this.state}/>} />
                     <Route exact path="/budget" render={props => <Budget {...props} userData={this.state}/>}/>
                     <Route exact path="/calendar" render={props => <MainCalendar {...props} userData={this.state}/>}/>
                     <Route component={NoMatch} />
@@ -123,8 +123,8 @@ class App extends Component {
 
             <div className="row">
               <div className="footer">
-                <div className="about"><a href="#">About</a></div>
-                <div className="copyright"><a href="#">Copyright</a></div>
+                <div className="about"><a>About</a></div>
+                <div className="copyright"><a>Copyright</a></div>
               </div>
             </div>
           </div>
