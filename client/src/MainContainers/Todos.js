@@ -22,7 +22,7 @@ class Todos extends Component {
             API.updateTodo({info: {username: this.props.userData.user.info.username, password: this.props.userData.user.info.password}, todo: {time: tasktime, task: task, cost: cost, location: location}, moneyLeft})
             .then(res=> {
                 res.data.todos.sort((a, b)=> {return new Date(a.time) - new Date(b.time)});
-                return this.props.loggedIn({user: res.data});
+                return this.props.handleLogin({user: res.data});
             })
             .catch(err=> console.log(err));
         }
@@ -40,12 +40,10 @@ class Todos extends Component {
         }
     }
 
-
-
     render() {
         return (
             <div className="todos">
-                <h2 className="todoHead">{this.props.userData.selectedDay}</h2>
+                <h2 key={this.props.userData.selectedDay} className="todoHead">{this.props.userData.selectedDay}</h2>
                 <ul className="list-group list-group-flush">
                     {this.props.userData.user? (
                         this.props.userData.user.todos.map(this.checkDate(this.props.userData.selectedDay))

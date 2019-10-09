@@ -12,10 +12,10 @@ class CalendarSide extends Component {
     }
 
     handleDayClick(day, { selected }) {
+        this.props.date({selectedDay: day.toDateString()});
         this.setState({
           selectedDay: selected ? undefined : day,
         });
-        this.props.date({selectedDay: day.toDateString()});
     }
 
     render() {

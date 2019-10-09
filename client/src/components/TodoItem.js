@@ -4,9 +4,6 @@ class TodoItem extends Component {
 
     render () {
         const time = new Date(this.props.item.time),
-                year = time.getFullYear(),
-                month = time.getMonth(),
-                day = time.getDate(),
                 hour = time.getHours() > 12? time.getHours() - 12 : time.getHours(),
                 minute = time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes(),
                 ampm = time.getHours() > 12? "p.m" : "a.m.";

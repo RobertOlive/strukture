@@ -45,7 +45,7 @@ class Login extends Component {
                 <div className="intro">Everyone needs a little strukture in their life. Make your life simpler by scheduling your day, planning your month, and easily creating a budget.</div>
 
 
-                <div className="modal fade" id="ModalLogin" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div className="modal fade" id="ModalLogin" tabIndex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -73,7 +73,7 @@ class Login extends Component {
                 </div>
 
 
-                <div className="modal fade" id="ModalSignUp" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div className="modal fade" id="ModalSignUp" tabIndex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">

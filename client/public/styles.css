@@ -46,6 +46,7 @@ a {
     text-decoration: none;
     font-weight: normal;
     color: rgb(100, 100, 100);
+    transition: transform .5s;
 }
 
 a:hover {
@@ -54,6 +55,7 @@ a:hover {
     background: -webkit-linear-gradient(left, red, blue, green);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-color: rgb(100, 100, 100);
 }
 
 .calSide {
@@ -91,7 +93,7 @@ a:hover {
 
 .footer {
     width: 100%;
-    height: 25px;
+    height: 3rem;
     position:fixed;
     bottom: 0px;
     right: 0;
@@ -183,23 +185,30 @@ a:hover {
 }
 
 .about {
+    float: left;
     color: rgb(100, 100, 100);
-
-    margin-left: 100px;
     width: 50%;
-    left: 0;
-    bottom: 0;
+    margin:auto;
+    margin-top: .75rem;
+    text-align: center;
+    transition: transform .5s;
 }
 
 .copyright {
+    float: right;
     color: rgb(100, 100, 100);
-
-    margin-right: 100px;
     width: 50%;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    text-align: right;
+    margin:auto;
+    margin-top: .75rem;
+    text-align: center;
+    transition: transform .5s;
+
+}
+
+.copyright:hover, .about:hover{
+    display: block;
+    transform: scale(1.2);
+    /* background-color: rgb(100, 100, 100); */
 }
 
 .introLinks {
@@ -210,6 +219,11 @@ a:hover {
 
 .taskMove {
     margin-left: 15%;
+}
+
+.login {
+    box-shadow: 1px 1px 30px rgb(100, 100, 100) inset;
+    border-radius: 1rem;
 }
 
 @media only screen and (max-width: 768px) {
