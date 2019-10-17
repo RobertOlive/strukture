@@ -12,6 +12,8 @@ export default {
     updateTodo: userData => {
         return axios.put("/api/users/" +userData.username, userData);
     }
+
+    // working on this: need to be able to update the budget
     // updateBudget: (id) => {
     //     return axios.put("/api/users/" + id)
     // },
