@@ -24,6 +24,7 @@
     "express": "^4.15.4",
     "heroku": "^7.33.3",
     "if-env": "^1.0.4",
+    "mixin-deep": "^2.0.1",
     "mongoose": "^5.7.7",
     "react-calendar": "^2.16.1",
     "react-day-picker": "^7.4.0",
