@@ -16,17 +16,17 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^3.5.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.19.4"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "express": "^4.15.4",
-    "heroku": "^7.7.4",
+    "heroku": "^7.33.3",
     "if-env": "^1.0.4",
-    "mongoose": "^5.2.4",
+    "mongoose": "^5.7.7",
     "react-calendar": "^2.16.1",
-    "react-day-picker": "^7.1.10",
+    "react-day-picker": "^7.4.0",
     "react-router-dom": "^4.3.1"
   }
 }
