@@ -1,5 +1,5 @@
 # strukture
-An app designed to organize and simplify your life.
+An app designed to organize and simplify your life. 
 
 Everyone needs a little strukture in their life. Make your life simpler by scheduling your day, planning your month, and easily creating a budget.
 
